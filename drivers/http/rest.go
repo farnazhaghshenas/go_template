@@ -4,28 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
 
 var MarshalFailed = errors.New("failed to marshal body of request")
-var UnAutorized = errors.New("unauthorized")
-
-func checkStatus(status int) error {
-	switch true {
-	case status == 404:
-		return errors.New("not found")
-	case status < 200:
-		return errors.New("seri 100")
-	case status >= 200, status < 300:
-		return nil
-	case status == 401, status == 403:
-		return UnAutorized
-	default:
-		return fmt.Errorf("status is not ok, %d", status)
-	}
-}
 
 func RestCall(value interface{}, method string, url string, body map[string]interface{}, headers map[string]string) error {
 	bs, err := json.Marshal(body)
@@ -49,9 +32,7 @@ func RestCall(value interface{}, method string, url string, body map[string]inte
 	if err != nil {
 		return err
 	}
-	if err = checkStatus(response.StatusCode); err != nil {
-		return err
-	}
+
 	err = json.Unmarshal(bs, &value)
 	if err != nil {
 		return err
