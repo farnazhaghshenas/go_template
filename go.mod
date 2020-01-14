@@ -1,4 +1,4 @@
-module black_gate
+module go_template
 
 go 1.13
 

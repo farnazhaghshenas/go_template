@@ -1,6 +1,6 @@
-SERVICE_NAME:=black-gate
-SERVICE_NAMESPACE:=black-gate
-CREATED_BY:=black-gate
+SERVICE_NAME:=go_template
+SERVICE_NAMESPACE:=go_template
+CREATED_BY:=go_template
 build:
 	go test -mod vendor ./...
 	go build -mod vendor ./...
