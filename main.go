@@ -15,8 +15,8 @@ limitations under the License.
 */
 package main
 
-import "black_gate/cmd"
+import "go_template/cmd"
 
 func main() {
-  cmd.Execute()
+	cmd.Execute()
 }

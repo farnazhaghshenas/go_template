@@ -1,17 +1,16 @@
 package sql
 
 import (
-	"black_gate/config"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
-
+	"go_template/config"
 )
 
-func Connect() (*sql.DB, error){
+func Connect() (*sql.DB, error) {
 	db, err := sql.Open("mysql", config.Database().ConnectionString())
-	if err != nil{
-		return  db, err
+	if err != nil {
+		return db, err
 	}
 	err = db.Ping()
-	return  db, err
+	return db, err
 }

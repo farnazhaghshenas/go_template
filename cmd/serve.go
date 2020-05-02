@@ -16,8 +16,8 @@ limitations under the License.
 package cmd
 
 import (
-	"black_gate/handlers/cli"
 	"github.com/spf13/cobra"
+	"go_template/handlers/cli"
 )
 
 // serveCmd represents the serve command
